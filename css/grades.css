@@ -1,0 +1,75 @@
+body {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  font-family: Georgia, serif;
+  color: #db5079;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+.grade {
+  background-image: url("/assets/image2.png");
+  background-size: cover;
+  border-radius: 12px;
+  padding: 8px;
+  aspect-ratio: auto 16 / 9;
+  min-width: 200px;
+  width: 30%;
+  margin-top: 0.5rem;
+}
+
+.grade-footer {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+}
+
+.grade-footer > span {
+  width: 70%;
+}
+
+.grade-footer > button {
+  width: 30%;
+  padding: 0 0.5rem;
+  background-color: #393ec3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.grade-header {
+  height: 50%;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 2rem;
+}
+
+#grades {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+  padding: 0 15%;
+  flex-wrap: wrap;
+}
