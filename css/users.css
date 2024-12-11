@@ -1,0 +1,77 @@
+body {
+  background-image: url("/assets/image3.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-position: center 225px;
+  background-size: 500px 500px;
+  background-color: #f6f6f6;
+}
+
+.create-user {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 5px;
+  background-color: #db5079;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: block;
+  max-width: 200px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.create-user:hover {
+  background-color: rgba(219, 80, 121, 0.5);
+}
+
+.delete {
+  display: inline-block;
+  transition: transform 0.3s ease, text-decoration 0.3s ease;
+  color: #d38dd7;
+}
+
+.delete:hover {
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+h1 {
+  font-family: Georgia, serif;
+  color: #db5079;
+  text-align: center;
+  margin-top: 40px;
+}
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin: 40px auto;
+  font-size: 18px;
+  text-align: center;
+  font-family: Georgia, serif;
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+}
+
+th {
+  background-color: #db5079;
+  color: white;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+  visibility: visible;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}

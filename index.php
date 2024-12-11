@@ -1,4 +1,12 @@
 <?php
+session_start();  // Start the session to manage login state
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if the user is not logged in
+    header("Location: login.php");
+    exit();
+}
+
 
 spl_autoload_register(function ($className) {
     $paths = ['models', 'controllers', 'helpers', 'config'];

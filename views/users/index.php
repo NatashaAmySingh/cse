@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="css/users.css"/>
     <title>User Management</title>
 </head>
 <body>
     <h1>User Management</h1>
-    <a href="index.php?controller=user&action=createForm">Create User</a>
     <table border="1">
         <thead>
             <tr>
@@ -24,11 +24,12 @@
                     <td><?= htmlspecialchars($user['email']) ?></td>
                     <td><?= htmlspecialchars($user['role']) ?></td>
                     <td>
-                        <a href="index.php?controller=user&action=deleteUser&id=<?= $user['id'] ?>">Delete</a>
+                        <a class="delete", href="index.php?controller=user&action=deleteUser&id=<?= $user['id'] ?>">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-</body>
+    <a class="create-user", href="index.php?controller=user&action=createForm">Create User</a>
+</body>                             
 </html>

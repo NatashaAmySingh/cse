@@ -14,6 +14,7 @@ class StudentController {
     // List all students
     public function listStudents() {
         $students = $this->model->getAllStudents();
+        $classes = $this->classModel->getAllClasses();
         include "views/students/index.php";
     }
 
