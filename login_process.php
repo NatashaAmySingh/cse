@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Password is correct, create session variables
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['email'] = $user['email'];
+        $_SESSION['role'] = $user['role']; // Store the role
 
         // Redirect to the dashboard or home page
         header("Location: index.php");

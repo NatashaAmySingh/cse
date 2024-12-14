@@ -38,5 +38,31 @@ class ClassModel {
         $stmt->bindParam(":grade_id", $gradeId);
         return $stmt->execute();
     }
+
+        /**
+     * Get class details by ID.
+     * 
+     * @param int $classId
+     * @return array|null
+     */
+    public function getClassById($classId) {
+        $query = $this->conn->prepare("SELECT * FROM classes WHERE id = :id");
+        $query->bindParam(':id', $classId, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Get all classes.
+     * 
+     * @return array
+     */
+        // Fetch all grades
+    public function getAllGrades() {
+        $query = "SELECT * FROM grades";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>

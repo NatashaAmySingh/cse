@@ -1,0 +1,99 @@
+body {
+  font-family: Georgia, sans-serif;
+  background-color: #fff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #db5079;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  color: #db5079;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #db5079;
+}
+
+.dropdown,
+input[type="text"],
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #db5079;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #db5079;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #c0486a;
+}
+
+.report-card {
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.report-card th,
+.report-card td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.report-card th {
+  background-color: #db5079;
+  color: #fff;
+}
+
+.report-card td {
+  background-color: #f9f9f9;
+}
+
+.report-card tr:hover {
+  background-color: #f1f1f1;
+}
+
+button.print {
+  margin-top: 20px;
+  width: auto;
+}
+
+a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #db5079;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}

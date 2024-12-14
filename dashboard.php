@@ -120,8 +120,14 @@ $userName = $_SESSION['email']; // or fetch user details from the database if ne
     <div class="dashboard-container">
         <h1 class="heading">Welcome, <?php echo htmlspecialchars($userName); ?>!</h1>
         <div class="link-container">
-            <a href="index.php">Students</a>
-            <a href="index.php">Users</a>
+            <a href="index.php?controller=student&action=listStudents">Students</a>
+            <?php
+             if ($_SESSION['role'] !== 'Teacher') {
+                echo '<a class="users" href="index.php">Users</a>';
+                echo '<a href="index.php?controller=class&action=createForm">Class Management</a>';
+            }
+            ?>
+
             <a href="logout.php">Logout</a>
         </div>
 

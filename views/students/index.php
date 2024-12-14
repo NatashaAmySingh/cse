@@ -1,48 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="css/students.css" />
     <title>Student Management</title>
 </head>
 <body>
     <h1>Student Management</h1>
 
-    <!-- Filter Form -->
-    <form method="GET" action="index.php">
-        <label for="class_filter">Filter by Class:</label>
-        <select name="class_id" id="class_filter">
-            <option value="">All Classes</option>
-            <?php foreach ($classes as $class): ?>
-                <option value="<?= $class['id'] ?>" <?= isset($_GET['class_id']) && $_GET['class_id'] == $class['id'] ? 'selected' : '' ?>>
-                    <?= htmlspecialchars($class['name']) ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <button type="submit">Filter</button>
-    </form>
+   
+<form id="filterForm">
+    <label for="grade_filter">Filter by Grade:</label>
+    <select name="grade_id" id="grade_filter">
+        <option value="">All Grades</option>
+        <?php foreach ($grades as $grade): ?>
+            <option value="<?= $grade['id'] ?>" 
+                <?= isset($_GET['grade_id']) && $_GET['grade_id'] == $grade['id'] ? 'selected' : '' ?>>
+                <?= htmlspecialchars($grade['name']) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+    <button type="button" onclick="filterByGrade()">Filter</button>
+</form>
+
+<script>
+    function filterByGrade() {
+        var gradeId = document.getElementById("grade_filter").value; // Get the selected grade ID
+        var url = "index.php?controller=student&action=listStudents"; // Base URL for filtering students
+
+        // Append grade_id as a query parameter if it's selected
+        if (gradeId) {
+            url += "&grade_id=" + gradeId;
+        }
+
+        // Redirect to the new URL
+        window.location.href = url;
+    }
+</script>
 
     <a href="index.php?controller=student&action=createForm">Create Student</a>
     <table border="1">
-        <thead>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Class</th>
+            <th>Grade</th> <!-- Added Grade column -->
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($students as $student): ?>
             <tr>
-                <th>ID</th>
-                <th>Student Name</th>
-                <th>Class</th>
-                <th>Actions</th>
+                <td><?= $student['id'] ?></td>
+                <td><?= htmlspecialchars($student['name']) ?></td>
+                <td><?= htmlspecialchars($student['class_name']) ?></td>
+                <td><?= htmlspecialchars($student['grade']) ?></td> <!-- Display Grade -->
+                <td>
+                    <a href="index.php?controller=report&action=studentReportCard&student_id=<?= $student['id'] ?>&term=1">View Report Card</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($students as $student): ?>
-                <tr>
-                    <td><?= $student['id'] ?></td>
-                    <td><?= htmlspecialchars($student['name']) ?></td>
-                    <td><?= htmlspecialchars($student['class_name']) ?></td>
-                    <td>
-                        <a href="index.php?controller=student&action=view&id=<?= $student['id'] ?>">View Details</a> |
-                        <a href="index.php?controller=score&action=listScores&studentId=<?= $student['id'] ?>">View Scores</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 </body>
 </html>

@@ -1,8 +1,15 @@
+<?php
+if ($_SESSION['role'] == 'Teacher') {
+    header('Location: dashboard.php');
+
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/users.css"/>
     <title>User Management</title>
+    <link rel="stylesheet" href="css/users.css" />
 </head>
 <body>
     <h1>User Management</h1>

@@ -1,3 +1,10 @@
+<?php
+if ($_SESSION['role'] == 'Teacher') {
+    header('Location: dashboard.php');
+
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

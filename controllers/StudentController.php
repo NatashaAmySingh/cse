@@ -11,17 +11,25 @@ class StudentController {
         $this->classModel = new ClassModel(); // Fetch classes for dropdown
     }
 
-    // List all students
+    // List all students with class filtering
+
     public function listStudents() {
-        $students = $this->model->getAllStudents();
-        $classes = $this->classModel->getAllClasses();
-        include "views/students/index.php";
-    }
+    // Get the grade ID from the GET request (if any)
+    $gradeId = isset($_GET['grade_id']) ? $_GET['grade_id'] : '';
+
+    // Fetch students based on the grade filter
+    $students = $this->model->getStudentsByGrade($gradeId);
+
+    // Fetch all grades for the dropdown
+    $grades = $this->classModel->getAllGrades(); // Assuming a method to get all grades
+
+    include "views/students/index.php"; // Include the view for displaying the students
+}
 
     // Show form to create a new student
     public function createForm() {
         $classes = $this->classModel->getAllClasses(); // Fetch all classes
-        include "views/students/create.php";
+        include "views/students/create.php"; // Include the form for creating a new student
     }
 
     // Handle creating a new student
@@ -38,4 +46,5 @@ class StudentController {
         }
     }
 }
+
 ?>
